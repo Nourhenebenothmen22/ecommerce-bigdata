@@ -8,8 +8,8 @@ for line in sys.stdin:
         continue
     try:
         date = parts[1]
-        month = date[:7]  # 2023-01
+        month = date[:7]
         total = parts[6]
-        print(f"{month}\t{total}")
+        print("%s\t%s" % (month, total))
     except:
         continue
