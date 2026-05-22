@@ -9,6 +9,6 @@ for line in sys.stdin:
     try:
         country = parts[7]
         total = parts[6]
-        print(f"{country}\t{total}")
+        print("%s\t%s" % (country, total))
     except:
         continue
