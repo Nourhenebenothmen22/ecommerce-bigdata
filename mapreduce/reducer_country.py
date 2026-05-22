@@ -7,18 +7,24 @@ current_count = 0
 
 for line in sys.stdin:
     line = line.strip()
-    key, value = line.split("\t")
-    value = float(value)
+    parts = line.split("\t")
+    if len(parts) != 2:
+        continue
+    key = parts[0]
+    try:
+        value = float(parts[1])
+    except:
+        continue
 
     if key == current_key:
         current_sum += value
         current_count += 1
     else:
         if current_key:
-            print(f"{current_key}\t{current_sum:.2f}\t{current_count}")
+            print("%s\t%.2f\t%d" % (current_key, current_sum, current_count))
         current_key = key
         current_sum = value
         current_count = 1
 
 if current_key:
-    print(f"{current_key}\t{current_sum:.2f}\t{current_count}")
+    print("%s\t%.2f\t%d" % (current_key, current_sum, current_count))
