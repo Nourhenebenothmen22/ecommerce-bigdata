@@ -9,6 +9,6 @@ for line in sys.stdin:
     try:
         category = parts[2]
         total = parts[6]
-        print(f"{category}\t{total}")
+        print("%s\t%s" % (category, total))
     except:
         continue
